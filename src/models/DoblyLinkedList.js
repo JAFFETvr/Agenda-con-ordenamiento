@@ -1,3 +1,4 @@
+import { Node } from "./Nodo.js";
 class DoublyLinkedList {
     constructor() {
         this.head = null; 
