@@ -1,10 +1,5 @@
-import { DoublyLinkedList } from "./models/DoblyLinkedList.js";
-import { bubbleSort } from "./models/Burbuja.js";
-
-const agenda = new DoublyLinkedList();
-
+import { agenda,agendaObj } from "./controllers/Dependencias.js";
 const contactForm = document.getElementById("contactForm");
-const agendaDiv = document.getElementById("agenda");
 
 document.getElementById("agregar").addEventListener("click", function(event){
     event.preventDefault(); 
@@ -26,24 +21,5 @@ document.getElementById("agregar").addEventListener("click", function(event){
 });
 
 document.getElementById("mostrar").addEventListener("click", function(){
-    mostrarAgenda();
+    agendaObj.mostrarAgenda(agenda, document.getElementById("ordenarPor").value);
 });
-
-function mostrarAgenda() {
-    agendaDiv.innerHTML = ''; // Limpiar la agenda antes de mostrarla
-
-    // Obtener el tipo de orden seleccionado (nombre o apellido)
-    const ordenarPor = document.getElementById("ordenarPor").value;
-
-    // Ordenar la agenda según el tipo seleccionado
-    bubbleSort(agenda, ordenarPor);
-
-    // Crear y mostrar la lista de contactos
-    const ul = document.createElement("ul");
-    agenda.forEach(contacto => {
-        const li = document.createElement("li");
-        li.textContent = `Nombre: ${contacto.nombre} ${contacto.apellido} - Teléfono: ${contacto.telefono}`;
-        ul.appendChild(li);
-    });
-    agendaDiv.appendChild(ul);
-}
