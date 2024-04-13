@@ -3,21 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda con ordenamiento </title>
+    <title>Agenda Telefónica</title>
 </head>
 <body>
-    <h1>AGENDA TELEFOMICA </h1>
+    <h1>AGENDA TELEFÓNICA</h1>
     <h2>Formulario de Contacto</h2>
     <form id="contactForm">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
         
+        <label for="apellido">Apellido Paterno:</label>
+        <input type="text" id="apellido" name="apellido" required>
+        
         <label for="telefono">Número de Teléfono:</label>
         <input type="text" id="telefono" name="telefono" required>
         
         <button id="agregar">Agregar</button>
-        <button id="mostrar">Mostrar datos</button>
+        <button id="mostrar">Mostrar Agenda</button>
+        <label for="ordenarPor">Ordenar por:</label>
+        <select id="ordenarPor">
+            <option value="nombre">Nombre</option>
+            <option value="apellido">Apellido Paterno</option>
+        </select>
     </form>
- <script type="module" src="src/index.js"></script>
+
+    <div id="agenda"></div>
+
+    <script type="module" src="/src/index.js"></script>
 </body>
 </html>
