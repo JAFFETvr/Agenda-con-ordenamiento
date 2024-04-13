@@ -12,6 +12,6 @@ function bubbleSort(arr) {
     return arr;
 }
 
-var palabras = ["a", "e", "i", "u", "o", "f", "v"];
+var palabras = ["a", "e", "i", "c", "o", "d", "b"];
 console.log("Antes de ordenar:", palabras);
 console.log("Después de ordenar:", bubbleSort(palabras));
