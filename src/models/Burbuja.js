@@ -1,17 +1,32 @@
-function bubbleSort(arr) {
-    var len = arr.length;
-    for (var i = 0; i < len; i++) {
-        for (var j = 0; j < len - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                var temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+export function bubbleSort(agenda, tipoOrden) {
+    let current = agenda.head;
+    let swapped = true;
+
+    while (swapped) {
+        swapped = false;
+        current = agenda.head;
+
+        while (current && current.next) {
+            let shouldSwap = false;
+
+            if (tipoOrden === 'nombre') {
+                if (current.data.nombre > current.next.data.nombre) {
+                    shouldSwap = true;
+                }
+            } else if (tipoOrden === 'apellido') {
+                if (current.data.apellido > current.next.data.apellido) {
+                    shouldSwap = true;
+                }
             }
+
+            if (shouldSwap) {
+                const temp = current.data;
+                current.data = current.next.data;
+                current.next.data = temp;
+                swapped = true;
+            }
+
+            current = current.next;
         }
     }
-    return arr;
 }
-
-var palabras = ["a", "e", "i", "c", "o", "d", "b"];
-console.log("Antes de ordenar:", palabras);
-console.log("Después de ordenar:", bubbleSort(palabras));
